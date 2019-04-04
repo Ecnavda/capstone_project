@@ -1,6 +1,6 @@
 # Capstone Project - Broward Exchange
 
 ## Group
-- Heather
+- Heather - New to Github.
 - Jay
 - Jorge
