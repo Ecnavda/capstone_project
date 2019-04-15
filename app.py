@@ -1,12 +1,12 @@
 from pymongo import MongoClient
 from passlib.context import CryptContext
 from bson import ObjectId
-from flask import Flask, request, session
+from flask import Flask, request, session, render_template
 
 # Flask App boilerplate
 website = Flask(__name__)
 #  Used for session encryption (!DO NOT EXPOSE IN PRODUCTION!)
-website.secret_key = '8FdncbLeEvXEugscSWikJg' 
+website.secret_key = '8FdncbLeEvXEugscSWikJg'
 
 # Database connection boilerplate
 creds = ""
@@ -63,9 +63,11 @@ def authenticate():
                 }
         pass_info = passwords.find_one(search_pass)
         if pwd_context.verify(request.form["password"], pass_info.get("pass_hash")):
-            return "Login success"
+            session["username"] = user_info.get("username")
+            session["name"] = user_info.get("fname")
+            return render_template("index.html", name=session["name"])
         else:
-            return "Login failure"
+            return render_template("index.html")
     else:
         return "Failure"
 
@@ -75,3 +77,19 @@ def listings():
     # GET request for getting listings
     # POST request for creating listings
     pass
+
+
+@website.route("/test.html")
+def test_page():
+    if session.get("name"):
+        return render_template("test.html", name=session["name"])
+    else:
+        return render_template("test.html")
+
+
+@website.route("/")
+def entry():
+    if session.get("name"):
+        return render_template("index.html", name=session["name"])
+    else:
+        return render_template("index.html")

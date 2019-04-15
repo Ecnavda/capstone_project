@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{% block main %}
+	{% if name %}
+	You are viewing this page correctly {{ name }}.
+	{% else %}
+	Please sign in to view this page as intended.
+	{% endif %}
+{% endblock %}
