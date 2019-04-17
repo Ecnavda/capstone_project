@@ -1,0 +1,96 @@
+THE FOLLOWING WAS ORIGINALLY IN INDEX.HTML
+
+ <!-- Portfolio Section -->
+    <h2>Portfolio Heading</h2>
+
+    <div class="row">
+      <div class="col-lg-4 col-sm-6 portfolio-item">
+        <div class="card h-100">
+          <a href="#"><img class="card-img-top" src="images/team.jpg" alt="picture of team"></a>
+          <div class="card-body">
+            <h4 class="card-title">
+              <a href="#">Project One - Forming</a>
+            </h4>
+            <p class="card-text">Agreeing on the proper cause and website!</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6 portfolio-item">
+        <div class="card h-100">
+          <a href="#"><img class="card-img-top" src="images/img_greek wares.jpg" alt="">picture of greek wares</a>
+          <div class="card-body">
+            <h4 class="card-title">
+              <a href="#">Project Two - Storming</a>
+            </h4>
+            <p class="card-text">Creating our brand.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6 portfolio-item">
+        <div class="card h-100">
+          <a href="#"><img class="card-img-top" src="images/img_plates.jpg" alt=""></a>
+          <div class="card-body">
+            <h4 class="card-title">
+              <a href="#">Project Three - Norming</a>
+            </h4>
+            <p class="card-text">Ah, the proper template!</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6 portfolio-item">
+        <div class="card h-100">
+          <a href="#"><img class="card-img-top" src="images/img_1.jpg" alt="image of Project"></a>
+          <div class="card-body">
+            <h4 class="card-title">
+              <a href="#">Project Four - Performing </a>
+            </h4>
+            <p class="card-text">Serious Exchange</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6 portfolio-item">
+        <div class="card h-100">
+          <a href="#"><img class="card-img-top" src="images/img_living room set.jpg" alt="picture of living room set"></a>
+          <div class="card-body">
+            <h4 class="card-title">
+              <a href="#">Project Five - Perfecting</a>
+            </h4>
+            <p class="card-text">What would make our site better?</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6 portfolio-item">
+        <div class="card h-100">
+          <a href="#"><img class="card-img-top" src="images/img_spin records.jpg" alt="Picture of record player"></a>
+          <div class="card-body">
+            <h4 class="card-title">
+              <a href="#">Project Six - Launching aka Giving Birth</a>
+            </h4>
+            <p class="card-text">We are so please with the results. Good work team!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.row -->
+
+    <!-- Features Section -->
+    <div class="row">
+      <div class="col-lg-6">
+        <h2>Broward Exchange Features</h2>
+        <p>The Broward Exchange Initiative Includes:</p>
+        <ul>
+          <li>
+            <strong>Bootstrap v4</strong>
+          </li>
+          <li>jQuery</li>
+          <li>Font Awesome</li>
+          <li>Working contact form with validation</li>
+          <li>Unstyled page elements for easy customization</li>
+        </ul>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p>
+      </div>
+      <div class="col-lg-6">
+        <img class="img-fluid rounded" src="images/logo.png" alt="">
+      </div>
+    </div>
+    <!-- /.row -->
