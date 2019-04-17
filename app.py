@@ -58,16 +58,19 @@ def authenticate():
                 "email": request.form["email"]
                 }
         user_info = users.find_one(search_user)
-        search_pass = {
-                "user_id": user_info.get("_id"),
-                }
-        pass_info = passwords.find_one(search_pass)
-        if pwd_context.verify(request.form["password"], pass_info.get("pass_hash")):
-            session["username"] = user_info.get("username")
-            session["name"] = user_info.get("fname")
-            return render_template("index.html", name=session["name"])
-        else:
-            return render_template("index.html")
+        try:
+            search_pass = {
+                    "user_id": user_info.get("_id"),
+                    }
+            pass_info = passwords.find_one(search_pass)
+            if pwd_context.verify(request.form["password"], pass_info.get("pass_hash")):
+                session["username"] = user_info.get("username")
+                session["name"] = user_info.get("fname")
+                return render_template("index.html", name=session["name"])
+            else:
+                return render_template("index.html")
+        except:
+            return "<h1>Username not found</h1>" + render_template("index.html")
     else:
         return "Failure"
 
