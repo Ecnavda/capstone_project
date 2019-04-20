@@ -1,0 +1,88 @@
+/*!
+ * Start Bootstrap - Modern Business (https://startbootstrap.com/template-overviews/modern-business)
+ * Copyright 2013-2019 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-logomodern-business-nav/blob/master/LICENSE)
+ */
+body {
+  padding-top: 56px;
+  background-color: #f7f8f9;
+  color: #070600;
+  font-family: Raleway, Quicksand, sans-serif;
+  font-size: 1rem;
+  font-weight:400;
+  line-height: 1.6em;
+  text-align: center;
+
+  /*font: 400; 1rem Arial, Helvetica, sans-serif; shorter version*/
+ 
+}
+h1 {
+	color: #232b33;
+	font-size: 2.75rem;
+	text-align: center;
+	font-family: 'Sawarabi Mincho', sans-serif;
+}
+
+p {
+	text-align: center;
+}	
+
+nav {
+	font-family: Quicksand;
+	font-size: 1rem;
+	color: #fff;
+}
+
+form {
+		display: inline-block;
+}	
+
+.username {
+		font-size: 1rem;
+		font-family: Raleway;
+		text-align: center;
+}	
+
+.active {
+		color: #fff;
+}	
+
+.carousel-item {
+  height: 65vh;
+  min-height: 300px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  /* border: 2px dotted #665687; */
+  padding: 10px;
+  border-radius: 25px;
+}
+
+
+
+
+.portfolio-item {
+  margin-bottom: 30px;
+}
+
+.card-header {
+	font-family: Quicksand;
+	text-align: center;
+	font-size: 2rem;
+	color: #232b33;
+	/*-webkit-text-stroke: 0.75px #569cb7;
+		Wanted to add stroke to this, but it ended up looking kind of bad. */
+}	
+
+footer {
+   width: 100%; 
+   position: fixed; 
+   bottom: -100px; 
+   left: -0px; 
+}
+
+.row {
+	display: inline-block:	
+}
