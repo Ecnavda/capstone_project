@@ -82,6 +82,7 @@ def listings():
     pass
 
 
+"""
 @website.route("/test.html")
 def test_page():
     if session.get("name"):
@@ -96,3 +97,4 @@ def entry():
         return render_template("index.html", name=session["name"])
     else:
         return render_template("index.html")
+"""
