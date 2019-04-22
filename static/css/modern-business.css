@@ -76,12 +76,14 @@ form {
 		Wanted to add stroke to this, but it ended up looking kind of bad. */
 }	
 
+/* Conflicting with our other footer styles
 footer {
    width: 100%; 
    position: fixed; 
    bottom: -100px; 
    left: -0px; 
 }
+*/
 
 .row {
 	display: inline-block:	
