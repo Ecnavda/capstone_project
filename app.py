@@ -1,7 +1,7 @@
 from pymongo import MongoClient
 from passlib.context import CryptContext
 from bson import ObjectId
-from flask import Flask, request, session, render_template
+from flask import Flask, request, session, render_template, redirect
 
 # Flask App boilerplate
 website = Flask(__name__)
@@ -66,7 +66,7 @@ def authenticate():
             if pwd_context.verify(request.form["password"], pass_info.get("pass_hash")):
                 session["username"] = user_info.get("username")
                 session["name"] = user_info.get("fname")
-                return render_template("index.html", name=session["name"])
+                return render_template("bx_index.html", name=session["name"])
             else:
                 return render_template("index.html")
         except:
@@ -80,6 +80,26 @@ def listings():
     # GET request for getting listings
     # POST request for creating listings
     pass
+
+
+@website.route("/backend/", methods=["GET", "POST"])
+def back_index():
+    return render_template("bx_index.html")
+
+
+@website.route("/backend/about", methods=["GET", "POST"])
+def back_about():
+    return render_template("bx_about.html")
+
+
+@website.route("/backend/contact", methods=["GET", "POST"])
+def back_contact():
+    return render_template("bx_contact.html")
+
+
+@website.route("/backend/login", methods=["GET", "POST"])
+def back_login():
+    return render_template("bx_login.html")
 
 
 """
