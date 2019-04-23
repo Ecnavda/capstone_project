@@ -13,49 +13,64 @@ creds = ""
 with open("connectionString.txt", 'r') as cred_file:
     creds = cred_file.readline()
 client = MongoClient(creds)
+# Commented out the following as it isn't multiprocessor safe (won't work)
+# Each function gets its own client as it triggers
+"""
 db = client.capstone_dev
 users = db.users
 passwords = db.passwords
 posts = db.posts
+"""
 
 # Password library boilerplate
 pwd_context = CryptContext(schemes=["bcrypt"])
 
 
-@website.route("/create_user", methods=["POST"])
+@website.route("/create_user", methods=["GET", "POST"])
 def create_user():
+    db = MongoClient(creds).capstone_dev
+    # db = client.capstone_dev
+    users = db.users
+    passwords = db.passwords
+    # posts = db.posts
     # Grab username and password to send to DB
     # TODO Perform input validation!
     # TODO Catch all invalid use cases (email already in system)
-    if request.method == 'POST':
+    if request.method == "POST":
         user_id = ObjectId()
         pass_id = ObjectId()
         user_data = {
-                '_id': user_id,
-                'fname': request.form['fname'],
-                'lname': request.form['lname'],
-                'email': request.form['email'],
+                "_id": user_id,
+                "fname": request.form["fname"],
+                "lname": request.form["lname"],
+                "email": request.form["username"],
                 }
         pass_data = {
                 '_id': pass_id,
                 'user_id': user_id,
-                'email': request.form['email'],
-                'pass_hash': pwd_context.hash(request.form['password']),
+                'email': request.form["username"],
+                'pass_hash': pwd_context.hash(request.form["password"]),
                 }
         users.insert_one(user_data)
         passwords.insert_one(pass_data)
-        return "Success"
-    else:
-        return "Failure"
+        session["username"] = request.form["username"]
+        session["name"] = request.form["fname"]
+        return render_template("bx_index.html", name=session["name"])
+    elif request.method == "GET":
+        return render_template("bx_create_user.html")
 
 
-@website.route("/login", methods=["POST"])
+@website.route("/login", methods=["GET", "POST"])
 def authenticate():
+    db = MongoClient(creds).capstone_dev
+    users = db.users
+    passwords = db.passwords
+    # posts = db.posts
     # Compare input password to stored password
     # TODO sessions
     if request.method == "POST":
         search_user = {
-                "email": request.form["email"]
+                "email": request.form["username"]
                 }
         user_info = users.find_one(search_user)
         try:
@@ -70,9 +85,9 @@ def authenticate():
             else:
                 return render_template("index.html")
         except:
-            return "<h1>Username not found</h1>" + render_template("index.html")
-    else:
-        return "Failure"
+            return "<h1>Username not found</h1>" + render_template("bx_index.html")
+    elif request.method == "GET":
+        return render_template("bx_login.html")
 
 
 @website.route("/listings", methods=["GET", "POST"])
@@ -86,22 +101,32 @@ def listings():
 
 @website.route("/", methods=["GET", "POST"])
 def back_index():
-    return render_template("bx_index.html")
+    if session.get("name"):
+        return render_template("bx_index.html", name=session.get("name"))
+    else:
+        return render_template("bx_index.html")
 
 
 @website.route("/about", methods=["GET", "POST"])
 def back_about():
-    return render_template("bx_about.html")
+    if session.get("name"):
+        return render_template("bx_about.html", name=session.get("name"))
+    else:
+        return render_template("bx_about.html")
 
 
 @website.route("/contact", methods=["GET", "POST"])
 def back_contact():
-    return render_template("bx_contact.html")
+    if session.get("name"):
+        return render_template("bx_contact.html", name=session.get("name"))
+    else:
+        return render_template("bx_contact.html")
 
 
-@website.route("/login", methods=["GET", "POST"])
-def back_login():
-    return render_template("bx_login.html")
+@website.route("/logout")
+def logout():
+    session.clear()
+    return render_template("bx_index.html")
 
 
 """
