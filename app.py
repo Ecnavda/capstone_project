@@ -78,26 +78,28 @@ def authenticate():
 @website.route("/listings", methods=["GET", "POST"])
 def listings():
     # GET request for getting listings
+
     # POST request for creating listings
-    pass
+    
+    return render_template("bx_index.html")
 
 
-@website.route("/backend/", methods=["GET", "POST"])
+@website.route("/", methods=["GET", "POST"])
 def back_index():
     return render_template("bx_index.html")
 
 
-@website.route("/backend/about", methods=["GET", "POST"])
+@website.route("/about", methods=["GET", "POST"])
 def back_about():
     return render_template("bx_about.html")
 
 
-@website.route("/backend/contact", methods=["GET", "POST"])
+@website.route("/contact", methods=["GET", "POST"])
 def back_contact():
     return render_template("bx_contact.html")
 
 
-@website.route("/backend/login", methods=["GET", "POST"])
+@website.route("/login", methods=["GET", "POST"])
 def back_login():
     return render_template("bx_login.html")
 
