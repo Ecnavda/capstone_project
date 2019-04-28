@@ -1,0 +1,33 @@
+{% extends "bx_layout.html" %}
+
+{% block pagecontent %}
+
+  <div class="container">
+		  <!-- Page Heading/Breadcrumbs -->
+		  <h1 class="mt-4 mb-3">Create Posting</h1>
+		<hr>
+	</div>
+	
+  <form method="POST" action="/listings"> <!-- This needs to be created. -->
+		<div class="login">
+			<label for="item"><b>Item</b></label>
+			<input type="text" placeholder="Item" name="item" required><br>
+
+			<label for="description"><b>Item Description</b></label>
+			<input type="textarea" placeholder="Item Description" name="description" required /><br>
+
+			<label for="location"><b>Location</b></label>
+			<input type="text" placeholder="Location" name="location" required /><br>
+
+			<label for="picture"><b>Picture</b></label>
+			<input type="file" placeholder="Picture" name="picture" required><br>
+
+			<button type="submit">Submit</button><br>
+		</div>
+	</form>
+
+
+
+  </div>
+
+{% endblock pagecontent %}

@@ -51,14 +51,26 @@
           <li class="nav-item">
             <a class="nav-link" href="/contact">Contact</a>
           </li>
+	  {% if name %}
 	  <li class="nav-item">
-		  {% if name %}
-		  <a class="nav-link" href="/logout" >{{ name }}</a>
-		  {% else %}
-		  <a class="nav-link" href="/login">Login</a>
-		  <a class="nav-link" href="/create_user">Sign Up</a>
-		  {% endif %}
+		  <a class="nav-link" href="/create_listing" >Create Listing</a>
+	  </li>
+
+	  <li class="nav-item">
+		<a class="nav-link" href="/logout" >{{ name }}</a>
+	  </li>
+
+	  <li class="nav-item">
+		  <a class="nav-link" href="/logout" >Logout</a>
+	  </li>
+	  {% else %}
+	  <li class="nav-item">
+		<a class="nav-link" href="/login">Login</a>
+	  </li>
+	  <li class="nav-item">
+		<a class="nav-link" href="/create_user">Sign Up</a>
           </li>
+	  {% endif %}
         </ul>
       </div>
     </div>

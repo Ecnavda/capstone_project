@@ -1,0 +1,34 @@
+{% extends "bx_layout.html" %}
+
+{% block pagecontent %}
+
+<div class="container">
+
+	<h1 class="mt-4 mb-3">Listings</h1>
+	<hr>
+
+{% for post in postings %}
+    <!-- Project One -->
+    <div class="row">
+      <div class="col-md-7">
+        <a href="#">
+          <img class="img-fluid rounded mb-3 mb-md-0" src="images/listing-mu-1.png" alt="">
+        </a>
+      </div>
+      <div class="col-md-5">
+        <h3><strong>ssbm original release disc w. case</strong><br>$55</h3>
+        <p>you can risk buying on ebay or you can buy from me and know its real<br>
+		click through for more pics</p>
+        <a class="btn btn-dark" href="#">View Listing
+          <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+      </div>
+    </div>
+    <!-- /.row -->
+
+    <br>
+{% endfor %}
+
+</div>
+
+{% endblock pagecontent %}
