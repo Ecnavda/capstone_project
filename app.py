@@ -1,3 +1,4 @@
+import os
 from pymongo import MongoClient
 from passlib.context import CryptContext
 from bson import ObjectId
@@ -7,6 +8,9 @@ from flask import Flask, request, session, render_template, redirect
 website = Flask(__name__)
 #  Used for session encryption (!DO NOT EXPOSE IN PRODUCTION!)
 website.secret_key = '8FdncbLeEvXEugscSWikJg'
+#  Location of pictures uploaded
+upload_folder = "static/images/"
+website.config["UPLOAD FOLDER"] = upload_folder
 
 # Database connection boilerplate
 creds = ""
@@ -25,6 +29,13 @@ posts = db.posts
 # Password library boilerplate
 pwd_context = CryptContext(schemes=["bcrypt"])
 
+
+@website.route("/listings_old")
+def deleteme():
+    if session.get("name"):
+        return render_template("bx_listings_old.html", name=session.get("name"))
+    else:
+        return render_template("bx_listings_old.html")
 
 @website.route("/create_user", methods=["GET", "POST"])
 def create_user():
@@ -114,14 +125,17 @@ def listings():
         if session.get("name"):
             user = db.users.find_one({"email": session.get("username")})
             posts = db.posts
+            picture_file = request.files["picture"]
             data = {
                     "userid": user.get("_id"),
                     "item": request.form["item"],
                     "description": request.form["description"],
+                    "price": request.form["price"],
                     "location": request.form["location"],
+                    "picture": picture_file.filename,
                     }
             posts.insert_one(data)
-            
+            picture_file.save(os.path.join(website.config["UPLOAD FOLDER"], picture_file.filename))
             all_posts = posts.find()
 
             return render_template("bx_listings.html", name=session.get("name"), postings=all_posts)
@@ -160,21 +174,3 @@ def back_contact():
 def logout():
     session.clear()
     return render_template("bx_index.html")
-
-
-"""
-@website.route("/test.html")
-def test_page():
-    if session.get("name"):
-        return render_template("test.html", name=session["name"])
-    else:
-        return render_template("test.html")
-
-
-@website.route("/")
-def entry():
-    if session.get("name"):
-        return render_template("index.html", name=session["name"])
-    else:
-        return render_template("index.html")
-"""
