@@ -1,0 +1,111 @@
+{% extends "bx_layout.html" %}
+
+{% block pagecontent %}
+
+  <header>
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <!-- Slide One - Set the background image for this slide in the line below -->
+        <div class="carousel-item active" style="background-image: url('/images/logo.png')">
+
+        </div>
+        <!-- Slide Two - Set the background image for this slide in the line below -->
+        <div class="carousel-item" style="background-image: url('/images/img_garage sale.jpg')">
+          <div class="carousel-caption d-none d-md-block">
+            <h3>One man's trash is another man's treasure.</h3>
+            <p>What riches can you find?</p>
+          </div>
+        </div>
+        <!-- Slide Three - Set the background image for this slide in the line below -->
+        <div class="carousel-item" style="background-image: url('/images/cuddles.jpg')">
+          <div class="carousel-caption d-none d-md-block">
+            <h3>As much as we love pets...</h3>
+            <p>...please DON'T drop off your snuggly friends!</p>
+          </div>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- <h1 class="my-4">Welcome to Broward Exchange</h1> -->	<!-- Wanna see where else to put this. -->
+	<hr>
+
+    <!-- Marketing Icons Section -->
+    <div class="row">
+
+          <div class="col-lg-4 mb-4">
+        <div class="card h-100">
+          <h4 class="card-header">Give</h4>
+		  
+		<div class="card h-100">
+		  <a href="#"><img class="card-img-top" src="/images/img_plates.jpg" alt="plates!"></a>
+		</div>
+		  
+          <div class="card-body">
+            <p class="card-text">Search for items you want.</p>
+          </div>
+        </div>
+		</div>
+		
+      <div class="col-lg-4 mb-4">
+        <div class="card h-100">
+          <h4 class="card-header">Take</h4>
+		  
+		  <div class="card h-100">
+			<a href="/listings.html"><img class="card-img-top" src="/images/img_1.jpg" alt="homepage picture 2"></a>
+		  </div>
+		  
+          <div class="card-body">
+            <p class="card-text">Find items you don't want a better home.</p>
+          </div>
+        </div>
+      </div>
+	  
+      <div class="col-lg-4 mb-4">
+        <div class="card h-100">
+          <h4 class="card-header">Trade</h4>
+		  
+		  <div class="card h-100">
+			<a href="/listings.html"><img class="card-img-top" src="/images/img_living room set.jpg" alt="picture of living room set"></a>
+		  </div>
+		  
+          <div class="card-body">
+            <p class="card-text">Meet generous people, or pay it forward.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- /.row -->
+
+   
+    <hr>
+
+    <!-- Call to Action Section -->
+    <div class="row mb-4">
+      <div class="col-md-8">
+        <p>Start exchanging with other BC students today!</p>
+      </div>
+      <div class="col-md-4">
+        <a class="btn btn-lg btn-secondary btn-block" href="#">Start trading now!</a>
+      </div>
+    </div>
+
+  </div>
+
+{% endblock pagecontent %}

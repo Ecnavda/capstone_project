@@ -4,11 +4,14 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+uwsgi = {version = "*", sys_platform = "!= 'win32'"}
 
 [packages]
 flask = "*"
 pymongo = "*"
 dnspython = "*"
+passlib = "*"
+bcrypt = "*"
 
 [requires]
 python_version = "3.7"

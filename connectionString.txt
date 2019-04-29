@@ -1,0 +1,1 @@
+connect to DB by inserting connecting string here but use "git update-index --assume-unchanged $filename" to keep this file from getting pushed with credentials in it

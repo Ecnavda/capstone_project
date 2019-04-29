@@ -1,0 +1,45 @@
+{% extends "bx_layout.html" %}
+
+{% block pagecontent %}
+
+  <div class="container">
+		  <!-- Page Heading/Breadcrumbs -->
+		  <h1 class="mt-4 mb-3">Create Listing</h1>
+		<hr>
+	</div>
+	
+  <form enctype="multipart/form-data" method="POST" action="/listings"> <!-- This needs to be created. -->
+		<div class="login">
+			<table>
+			<tbody>
+				<tr>
+					<td><label for="item"><b>Item</b></label></td>
+					<td style="text-align:left"><input type="text" placeholder="Item" name="item" required /></td>
+				</tr>
+				<tr>
+					<td><label for="description"><b>Item Description</b></label></td>
+					<td style="text-align:left"><textarea rows="3" cols="30" placeholder="Enter description..." name="description" required ></textarea></td>
+				</tr>
+				<tr>
+					<td><label for="price"><b>Price</b></label></td>
+					<td style="text-align:left"><input type="text" placeholder="Price" name="price" required /></td>
+				</tr>
+				<tr>
+					<td><label for="location"><b>Location</b></label></td>
+					<td style="text-align:left"><input type="text" placeholder="Location" name="location" required /></td>
+				</tr>
+				<tr>
+					<td><label for="picture"><b>Picture</b></label></td>
+					<td style="text-align:left"><input type="file" placeholder="Picture" name="picture" required /></td>
+				</tr>
+			</tbody>
+			</table>
+			<button type="submit">Submit</button><br>
+		</div>
+	</form>
+
+
+
+  </div>
+
+{% endblock pagecontent %}
